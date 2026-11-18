@@ -146,7 +146,8 @@ export async function listMemberIcpaCertificateSlots(
         key: type.key,
         label: type.label,
         folder: type.folder,
-        file: files[0] ?? null,
+        // One download per certificate type when several PDFs exist.
+        file: files[files.length - 1] ?? null,
       };
     })
   );

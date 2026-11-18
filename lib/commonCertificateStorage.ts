@@ -68,9 +68,11 @@ export async function listMemberCommonCertificates(
     }
   }
 
-  return [...found.values()].sort((a, b) =>
+  const sorted = [...found.values()].sort((a, b) =>
     a.storagePath.localeCompare(b.storagePath, undefined, { numeric: true })
   );
+  // Members see one certificate to download, even when several PDFs match.
+  return sorted.length ? [sorted[sorted.length - 1]] : [];
 }
 
 /** Batch lookup for admin table — one bucket scan, grouped by membership ID. */

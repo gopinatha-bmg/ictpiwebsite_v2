@@ -1022,9 +1022,9 @@ export function CertificatesPortal({
                 </div>
 
                 {renderUploadedCertificatesSection(
-                  "Your Uploaded Certificates",
-                  "Additional certificates uploaded for your membership (practicing, NCVET, Skill India, and more).",
-                  commonCertificates,
+                  "Your Certificate",
+                  "Your uploaded certificate is ready to view or download.",
+                  commonCertificates.slice(0, 1),
                   commonLoading,
                   "No uploaded certificates have been found for your account yet.",
                   "from-sky-50 to-blue-100"
